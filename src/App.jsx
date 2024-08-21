@@ -1,10 +1,14 @@
 
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider 
+  } from 'react-router-dom'
 import './App.css'
-import Movie, {loadPopularMovies} from './components/Movie'
+import  {loadPopularMovies} from './components/Movie'
 import MainLayout from './Layout/MainLayout'
 import Homepage from './Page/Homepage'
-import ToggleBnt from './components/ToggleBnt'
 import Trailers from './components/Trailers'
 import ShowMovies from './components/ShowMovies'
 import ShowSeries from './components/ShowSeries'

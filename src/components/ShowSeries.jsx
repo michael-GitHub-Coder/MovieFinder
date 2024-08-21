@@ -9,16 +9,18 @@ const ShowSeries = () => {
     const [pages,setPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
     const [inputPage, setInputPage] = useState('');
+    const [selectedGenre, setSelectedGenre] = useState(null);
 
     useEffect(()=>{
         const fectMovies = async () =>{
-            const res = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa&page=${currentPage}`);
+            const genreQuery = selectedGenre ? `&with_genres=${selectedGenre}` : '';
+            const res = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa&page=${currentPage}${genreQuery}`);
             const data = await res.json();
             setPages(data.total_pages)
             setSeries(data.results)
         }
         fectMovies();
-    },[currentPage])
+    },[currentPage, selectedGenre])
 
     const handleNextPage = () => {
         if (currentPage < pages) {
@@ -43,17 +45,29 @@ const ShowSeries = () => {
             setCurrentPage(page);
             setInputPage('');
         } else {
-            alert(`Please enter a page number between 1 and ${pages}`);
+            alert(`Enter a number between 1 and ${pages}`);
         }
     }
-
+    const handleGenreClick = (genreId) => {
+        setSelectedGenre(genreId);
+        setCurrentPage(1); 
+    }
     const movieList =  movies.map((m) => (
-        <img className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
+        <img className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Image missing" />
     ))
 
     return (
 
         <>
+            <div className="mx-24 mt-6">
+                <button onClick={() => handleGenreClick(10759)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Action & Adventure</button>
+                <button onClick={() => handleGenreClick(16)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Animation</button>
+                <button onClick={() => handleGenreClick(35)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Comedy</button>
+                <button onClick={() => handleGenreClick(80)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Crime</button>
+                <button onClick={() => handleGenreClick(99)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Documentary</button>
+                <button onClick={() => handleGenreClick(10767)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Talk</button>
+                <button onClick={() => handleGenreClick(10763)} className="bg-blue-700 rounded-full p-2 text-white">News</button>
+            </div>
             <div key={movieList.id} className="mx-24 mt-12 flex grid grid-cols-9 overflow-hidden">
                 {movieList.slice(0,18) }
             </div>
