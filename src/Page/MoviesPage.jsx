@@ -1,13 +1,12 @@
 import React from 'react'
-import Movie from '../components/Movie'
 import ShowMovies from '../components/ShowMovies'
 
-const Homepage = () => {
+const MoviesPage = () => {
   return (
     <>
-      <Movie />
+        <ShowMovies />
     </>
   )
 }
 
-export default Homepage
+export default MoviesPage
