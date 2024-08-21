@@ -9,7 +9,7 @@ const Navbar = () => {
           <div className="space-x-4 hidden md:flex">
             <Link to="/" className="text-white hover:text-gray-400">Home</Link>
             <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
-            <Link to="#" className="text-white hover:text-gray-400">Contact</Link>
+            <Link to="/series" className="text-white hover:text-gray-400">TV Shows</Link>
           </div>
           <button className="md:hidden text-white" aria-label="Toggle menu">
           </button>

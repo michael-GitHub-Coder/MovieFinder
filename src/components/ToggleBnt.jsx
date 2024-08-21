@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ToggleBnt = ({propLink}) => {
+const ToggleBnt = ({title}) => {
   const [selectedOption, setSelectedOption] = useState('today');
 
   const handleToggle = (option) => {
@@ -14,7 +14,7 @@ const ToggleBnt = ({propLink}) => {
 
   return (
     <div className="flex items-center space-x-4 mx-24 my-5">
-      <span className="text-lg font-bold">Trending...</span>
+      <span className="text-md font-bold">{title}</span>
       <div className="bg-gray-500 rounded-full">
         <button
           onClick={() => handleToggle('today')}

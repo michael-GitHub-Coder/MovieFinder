@@ -7,6 +7,7 @@ import Homepage from './Page/Homepage'
 import ToggleBnt from './components/ToggleBnt'
 import Trailers from './components/Trailers'
 import ShowMovies from './components/ShowMovies'
+import ShowSeries from './components/ShowSeries'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route index element={<Homepage />} loader={loadPopularMovies}/>
         <Route path='/trailers' element={<Trailers />} loader={loadPopularMovies}/>
         <Route path='/movies' element={<ShowMovies />}/>
+        <Route path='/series' element={<ShowSeries/>} />
       </Route>
     )
   )
