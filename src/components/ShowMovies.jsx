@@ -1,7 +1,7 @@
 import React from 'react'
+import Navbar from './Navbar';
 import { useState,useEffect } from 'react'
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
-import { Link } from 'react-router-dom';
 
 const ShowMovies = () => {
 
@@ -58,7 +58,8 @@ const ShowMovies = () => {
 
     return (
 
-        <>
+        <>  
+            <Navbar />
             <div className="mx-24 mt-6">
                 <button onClick={() => handleGenreClick(12)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Adventure</button>
                 <button onClick={() => handleGenreClick(14)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Fantasy</button>
@@ -83,7 +84,7 @@ const ShowMovies = () => {
                         placeholder={`Page ${currentPage} of ${pages}`}
                         className="border p-1 w-40 text-center rounded-full"
                     />
-                    <button type="submit" className="ml-2 p-1 rounded-full bg-blue-700 text-white">Go</button>
+                    <button type="submit" className="-ml-6 p-1 rounded-full bg-blue-700 text-white">Go</button>
                 </form>
                 <button onClick={handleNextPage} disabled={currentPage === pages}>
                     <GoArrowRight className="text-4xl"/>

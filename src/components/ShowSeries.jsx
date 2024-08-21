@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
-import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const ShowSeries = () => {
 
@@ -59,6 +59,7 @@ const ShowSeries = () => {
     return (
 
         <>
+            <Navbar />
             <div className="mx-24 mt-6">
                 <button onClick={() => handleGenreClick(10759)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Action & Adventure</button>
                 <button onClick={() => handleGenreClick(16)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Animation</button>
@@ -75,7 +76,6 @@ const ShowSeries = () => {
                 <button onClick={handlePreviousPage} disabled={currentPage === 1}>
                     <GoArrowLeft className="text-4xl"/>
                 </button>
-                {/* <span className="mx-4">Page {currentPage} of {pages}</span> */}
                 <form onSubmit={handlePageInputSubmit} className="mx-4">
                     <input
                         type="number"
@@ -84,7 +84,7 @@ const ShowSeries = () => {
                         placeholder={`Page ${currentPage} of ${pages}`}
                         className="border p-1 w-40 text-center rounded-full"
                     />
-                    <button type="submit" className="ml-2 p-1 rounded-full bg-blue-700 text-white">Go</button>
+                    <button type="submit" className="-ml-6 p-1 rounded-full bg-blue-700 text-white">Go</button>
                 </form>
                 <button onClick={handleNextPage} disabled={currentPage === pages}>
                     <GoArrowRight className="text-4xl"/>

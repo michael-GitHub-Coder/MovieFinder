@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({image}) => {
     return(
       <>
       <nav className="bg-blue-700 p-4 fixed w-full top-0 left-0 z-50">
@@ -15,7 +15,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      
+      {/* opacity-60 */}
       <section className="bg-blue-600 mx-4 md:mx-24 text-white flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-24 h-2/3">
             <div className="relative text-center w-full max-w-[54rem]">
                 <h1 className="text-3xl md:text-6xl font-bold mb-4 mt-8 md:mt-12">Welcome.</h1>
