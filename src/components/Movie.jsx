@@ -7,6 +7,7 @@ const Movie = () => {
    
     const [movies,setMovies] = useState([]);
     const popularMovies = useLoaderData();
+    
     console.log(popularMovies);
 
     
