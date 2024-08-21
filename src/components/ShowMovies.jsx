@@ -10,6 +10,7 @@ const ShowMovies = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [inputPage, setInputPage] = useState('');
     const [selectedGenre, setSelectedGenre] = useState(null);
+    const [isClicksed,setIsClicked] = useState(false)
 
     useEffect(()=>{
         const fectMovies = async () =>{
