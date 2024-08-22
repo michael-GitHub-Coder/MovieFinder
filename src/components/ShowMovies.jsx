@@ -57,11 +57,19 @@ const ShowMovies = ({ moviesProp }) => {
         setSelectedGenre(genreId);
         setCurrentPage(1);
     };
-    const searchedMovielist =  movies.map(data => (
-        <img key={data.id} className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" /> 
+    const searchedMovielist =  movies.map(m => (
+        <div  className="h-68 mb-8 object-cover mr-2 shadow-lg rounded">
+            <img key={m.id} className="h-52" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
+            <h1 className="p-2 font-bold">{m.title}</h1>
+            <p className="pl-2  pb-2">{m.release_date}</p>
+    </div>
     ))
     const movieList = movie.map((m) => (
-        <img key={m.id} className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
+        <div  className="h-68 mb-8 object-cover mr-2 shadow-lg rounded">
+            <img key={m.id} className="h-52" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
+            <h1 className="p-2 font-bold">{m.title}</h1>
+            <p className="pl-2  pb-2">{m.release_date}</p>
+        </div>
     ));
 
     return (

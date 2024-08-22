@@ -56,7 +56,11 @@ const ShowSeries = () => {
         setCurrentPage(1); 
     }
     const movieList =  movies.map((m) => (
-        <img className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Image missing" />
+        <div  className="h-68 mb-8 object-cover mr-2 bg-gray-200 rounded">
+            <img key={m.id} className="h-52" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
+            <h1 className="p-2 font-bold">{m.title}</h1>
+            <p className="pl-2">{m.release_date}</p>
+        </div>
     ))
 
     return (

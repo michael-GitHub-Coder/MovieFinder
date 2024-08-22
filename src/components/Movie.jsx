@@ -23,7 +23,9 @@ const Movie = () => {
 
     const movieData = movies.map(data => (
         <Link to="/showInfo" >
-            <img key={data.id} className="h-52 mr-2 object-cover hover:transform hover:translate-x-4 hover:translate-y-2 transition-transform duration-300" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" />
+            <div className="h-52 w-full mr-2 object-cover ">
+                <img key={data.id} className="h-52 w-2/5 hover:transform hover:translate-x-4 hover:translate-y-2 transition-transform duration-300" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" />
+            </div>
         </Link>
     ))
     
