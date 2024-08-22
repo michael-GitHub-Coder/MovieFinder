@@ -7,8 +7,6 @@ const ShowInfo = () => {
 
   const movieInfo = useLoaderData();
 
-  console.log(movieInfo)
-
   return (
     <div className="flex flex-row space-x-5 mx-64 my-24">
          <div className="w-64 h-80 rounded overflow-hidden shadow-xl">

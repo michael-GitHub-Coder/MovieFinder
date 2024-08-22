@@ -2,6 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Navbar from './Navbar';
+import { useLocation } from 'react-router-dom';
 
 const ShowSeries = () => {
 
@@ -10,6 +11,8 @@ const ShowSeries = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [inputPage, setInputPage] = useState('');
     const [selectedGenre, setSelectedGenre] = useState(null);
+    const location = useLocation();
+    const series = location.state?.movies || [];
 
     useEffect(()=>{
         const fectMovies = async () =>{
@@ -70,7 +73,13 @@ const ShowSeries = () => {
                 <button onClick={() => handleGenreClick(10763)} className="bg-blue-700 rounded-full p-2 text-white">News</button>
             </div>
             <div key={movieList.id} className="mx-24 mt-12 flex grid grid-cols-9 overflow-hidden">
-                {movieList.slice(0,18) }
+                {series.length > 0 ? (
+                    series.map(data => (
+                        <img key={data.id} className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" />
+                        
+                    ))
+                ): movieList.slice(0, 18) 
+                }
             </div>
             <div className="flex justify-center mt-4 mb-10">
                 <button onClick={handlePreviousPage} disabled={currentPage === 1}>

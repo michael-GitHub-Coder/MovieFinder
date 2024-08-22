@@ -1,4 +1,8 @@
-
+//TODO: search
+//TODO: show movies and tv shows information on click {showInfo}.
+//TODO: complete trending movies and tv shows filter.
+//TODO: Create a footer.
+//TODO: Make everything responsive, start with the navbar.
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -22,9 +26,11 @@ function App() {
       <Route path='/' element={<MainLayout/>} >
         <Route index element={<Homepage />} loader={loadPopularMovies}/>
         <Route path='/trailers' element={<Trailers />} loader={loadPopularMovies}/>
-        <Route path='/movies' element={<ShowMovies />}/>
+        <Route path='/movies' element={<ShowMovies />} />
         <Route path='/series' element={<ShowSeries/>} />
         <Route path='/showInfo' element={<ShowInfo />} />
+        <Route path='/search-results' element={<ShowMovies />} />
+        <Route path='/search-results-series' element={<ShowSeries /> } />
       </Route>
     )
   )
