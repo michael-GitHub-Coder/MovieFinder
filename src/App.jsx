@@ -3,6 +3,7 @@
 //TODO: complete trending movies and tv shows filter.
 //TODO: Create a footer.
 //TODO: Make everything responsive, start with the navbar.
+
 import {
   createBrowserRouter,
   createRoutesFromElements,

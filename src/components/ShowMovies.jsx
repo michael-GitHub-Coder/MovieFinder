@@ -57,7 +57,9 @@ const ShowMovies = ({ moviesProp }) => {
         setSelectedGenre(genreId);
         setCurrentPage(1);
     };
-  
+    const searchedMovielist =  movies.map(data => (
+        <img key={data.id} className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" /> 
+    ))
     const movieList = movie.map((m) => (
         <img key={m.id} className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
     ));
@@ -74,13 +76,7 @@ const ShowMovies = ({ moviesProp }) => {
                 <button onClick={() => handleGenreClick(10749)} className="bg-blue-700 rounded-full p-2 text-white">Romance</button>
             </div>
             <div className="mx-24 mt-6 flex grid grid-cols-9 overflow-hidden">
-                {movies.length > 0 ? (
-                    movies.map(data => (
-                        <img key={data.id} className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" />
-                        
-                    ))
-                ): movieList.slice(0, 18) 
-                }
+                {movies.length > 0 ? searchedMovielist : movieList.slice(0, 18) }
             </div>
             <div className="flex justify-center mt-4 mb-10">
                 <button onClick={handlePreviousPage} disabled={currentPage === 1}>

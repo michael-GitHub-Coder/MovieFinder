@@ -25,9 +25,14 @@ const Navbar = ({ moviesProp }) => {
 
         const combinedResults = [...movieData.results, ...tvData.results]; 
         setMovies(combinedResults);
-        
-        navigate('/search-results', { state: { movies: combinedResults } });
-        navigate('/search-results-series', { state: { movies: combinedResults } });
+       
+        setPages({
+            moviePages: movieData.total_pages,
+            tvPages: tvData.total_pages
+        });
+
+        navigate('/search-results', { state: { movies: movieData.results, moviePages: movieData.total_pages } });
+        navigate('/search-results-series', { state: { tvShows: tvData.results, tvPages: tvData.total_pages } });
 
     };
 
