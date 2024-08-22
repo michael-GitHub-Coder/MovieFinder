@@ -56,10 +56,17 @@ const ShowSeries = () => {
         setCurrentPage(1); 
     }
     const movieList =  movies.map((m) => (
-        <div  className="h-68 mb-8 object-cover mr-2 bg-gray-200 rounded">
+        <div  className="h-68 mb-8 object-cover mr-2 shadow-lg rounded">
             <img key={m.id} className="h-52" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
-            <h1 className="p-2 font-bold">{m.title}</h1>
-            <p className="pl-2">{m.release_date}</p>
+            <h1 className="p-2 font-bold">{m.original_name}</h1>
+            <p className="pl-2  pb-2">{m.first_air_date}</p>
+        </div>
+    ))
+    const seriesSearched = series.map(data => (
+        <div  className="h-68 mb-8 object-cover mr-2 shadow-lg rounded">
+            <img key={m.id} className="h-52" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
+            <h1 className="p-2 font-bold">{m.original_name}</h1>
+            <p className="pl-2  pb-2">{m.first_air_date}</p>
         </div>
     ))
 
@@ -78,10 +85,7 @@ const ShowSeries = () => {
             </div>
             <div key={movieList.id} className="mx-24 mt-12 flex grid grid-cols-9 overflow-hidden">
                 {series.length > 0 ? (
-                    series.map(data => (
-                        <img key={data.id} className="h-52 mb-8 object-cover" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" />
-                        
-                    ))
+                    seriesSearched
                 ): movieList.slice(0, 18) 
                 }
             </div>

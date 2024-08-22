@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import { useLocation } from 'react-router-dom';
 
-const ShowMovies = ({ moviesProp }) => {
+const ShowMovies = () => {
 
 
     const [movie, setMovies] = useState([]);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ moviesProp }) => {
+const Navbar = () => {
 
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState('');
@@ -46,9 +46,6 @@ const Navbar = ({ moviesProp }) => {
                         <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
                         <Link to="/series" className="text-white hover:text-gray-400">TV Shows</Link>
                     </div>
-                    <button className="md:hidden text-white" aria-label="Toggle menu">
-                        {/* Add a toggle menu icon if needed */}
-                    </button>
                 </div>
             </nav>
 
