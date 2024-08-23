@@ -8,7 +8,7 @@ const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [pages, setPages] = useState(1);
-
+ 
     const handleSearchQueryChange = (e) => {
         setSearchQuery(e.target.value);
     };
@@ -75,10 +75,19 @@ const Navbar = () => {
     );
 };
 
-// const loadSearch = async () => {
-//     const res = await fetch("https://api.themoviedb.org/3/search/keyword?page=1&api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
-//     const data = await res.json();
-//     return data.results;
-// };
+const selected = async () => {
+  
+   const movieRes = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
+   const movieData = await movieRes.json();
 
-export default Navbar 
+//    const tvRes = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
+//    const tvData = await tvRes.json();
+
+   //const combinedResults = [...movieData.results, ...tvData.results]; 
+
+   //return combinedResults;
+   return movieData.results;
+
+};
+
+export {Navbar as default, selected} 

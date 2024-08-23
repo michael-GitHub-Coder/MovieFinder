@@ -1,27 +1,40 @@
 import React from 'react'
-import imagee from '../components/Moviefinder logo.png'
-import { FaChild } from 'react-icons/fa'
-import { useLoaderData } from 'react-router-dom'
+import { FaChild, FaListAlt } from 'react-icons/fa'
+import { useLoaderData, useParams } from 'react-router-dom'
+import Navbar from './Navbar'
+import { MdFavoriteBorder } from 'react-icons/md'
+
 
 const ShowInfo = () => {
 
-  const movieInfo = useLoaderData();
-
+  const selectedData = useLoaderData();
+  const {id} = useParams()
+ 
   return (
-    <div className="flex flex-row space-x-5 mx-64 my-24">
-         <div className="w-64 h-80 rounded overflow-hidden shadow-xl">
-                <img src={imagee} className='h-full w-full'/>
-        </div>
-        <div className="w-5/6 px-6 rounded overflow-hidden ">
-            <div className=" font-bold text-xl">name</div>
-            <p className=" "><span><FaChild /></span> name</p>
-            
-            <div className="mt-8 py-2">
-                <button className="text-white mr-12 pl-4 pr-4 p-2 bg-indigo-500 rounded-full">EDIT</button>
-                <button className="text-white mr-12 pl-4 pr-4 p-2 bg-indigo-500 rounded-full">DELETE</button>
-            </div>
-        </div>
-    </div>
+    <>
+      <Navbar />
+      <div className="flex flex-row space-x-5 mx-64 my-24">
+          <div className="w-64 h-80 rounded overflow-hidden shadow-xl">
+            {
+              selectedData.map(data => (
+                 data.id === id ? 
+                <>
+                  <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full'/>
+                </>
+                : null
+              ))
+            }
+          </div>
+          <div className="w-5/6 px-6 rounded overflow-hidden ">
+                <div className=" font-bold text-xl">name</div>
+                <p> PG Date category duration</p>
+                <p className="mt-2 flex flex-row">
+                  <FaListAlt className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
+                  <MdFavoriteBorder className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
+                </p>
+            </div>   
+       </div>
+    </>
   )
 }
 
