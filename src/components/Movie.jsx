@@ -22,7 +22,7 @@ const Movie = () => {
     },[])
 
     const movieData = movies.map(data => (
-        <Link to={`/showInfo/${data.id}`} >
+        <Link to="/showInfo" >
             <div className="h-52 w-32 mr-2 object-cover ">
                 <img key={data.id} className="h-52 hover:transform hover:translate-x-4 hover:translate-y-2 transition-transform duration-300" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" />
             </div>
