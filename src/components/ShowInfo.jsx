@@ -8,21 +8,24 @@ import { MdFavoriteBorder } from 'react-icons/md'
 const ShowInfo = () => {
 
   const selectedData = useLoaderData();
-  const {id} = useParams()
- 
+  const {id} = useParams();
+ console.log(selectedData);
+ console.log(id)
+
   return (
     <>
       <Navbar />
       <div className="flex flex-row space-x-5 mx-64 my-24">
           <div className="w-64 h-80 rounded overflow-hidden shadow-xl">
             {
-              selectedData.map(data => (
-                 data.id === id ? 
+              selectedData.map(data => 
+                 data.id == id ?( 
                 <>
                   <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full'/>
                 </>
+                )
                 : null
-              ))
+              )
             }
           </div>
           <div className="w-5/6 px-6 rounded overflow-hidden ">

@@ -67,14 +67,14 @@ const Navbar = () => {
                     <div className="relative w-full md:max-w-2xl">
                         <form onSubmit={handleFormSubmit} className="relative">
                             <input
-                                className="w-full rounded-full p-3 pl-7 pr-32 text-black focus:outline-none"
+                                className="w-full rounded-full p-3 pl-7 pr-34 text-black focus:outline-none"
                                 placeholder="Search for a movie, TV show, series..."
                                 value={searchQuery}
                                 onChange={handleSearchQueryChange}
                             />
                             <button
                                 type="submit"
-                                className="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-4 rounded-full bg-blue-800 text-white p-3 hover:bg-blue-900"
+                                className="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-1.5 rounded-full bg-blue-800 text-white p-3 hover:bg-blue-900"
                                 onClick={() => {handleSearch()}}
                             >
                                 Search

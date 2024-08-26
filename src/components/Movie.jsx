@@ -42,7 +42,7 @@ const Movie = () => {
 }
 
 const loadPopularMovies = async () => {
-    const res = await fetch("https://api.themoviedb.org/3/movie/popular?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
+    const res = await fetch("https://api.themoviedb.org/3/movie/discover?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
     const data = await res.json();
     return data;
 }
