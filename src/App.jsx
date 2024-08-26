@@ -30,7 +30,7 @@ function App() {
         <Route path='/trailers' element={<Trailers />} loader={loadPopularMovies}/>
         <Route path='/movies' element={<ShowMovies />} />
         <Route path='/series' element={<ShowSeries/>} />
-        <Route path='/showInfo' element={<ShowInfo />} loader={selected } />
+        <Route path='/showInfo/:id' element={<ShowInfo />} loader={selected } />
         <Route path='/search-results' element={<ShowMovies />} />
         <Route path='/search-results-series' element={<ShowSeries /> } />
       </Route>

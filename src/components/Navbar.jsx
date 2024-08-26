@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CiMenuBurger } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
+    const [menuOpen, setMenuOpen] = useState(false);
     const [pages, setPages] = useState(1);
  
     const handleSearchQueryChange = (e) => {
@@ -25,15 +27,17 @@ const Navbar = () => {
 
         const combinedResults = [...movieData.results, ...tvData.results]; 
         setMovies(combinedResults);
-    
 
-        navigate('/search-results', { state: { movies: movieData.results } });
-
+        navigate('/search-results', { state: { movies: combinedResults } });
     };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         handleSearch();
+    };
+
+    const openMenu = () => {
+        setMenuOpen(!menuOpen); 
     };
 
     return (
@@ -46,7 +50,15 @@ const Navbar = () => {
                         <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
                         <Link to="/series" className="text-white hover:text-gray-400">TV Shows</Link>
                     </div>
+                    <button onClick={openMenu} className="text-white md:hidden"><CiMenuBurger className="text-2xl"/></button>
                 </div>
+                {menuOpen && (
+                    <div className="md:hidden flex flex-col space-y-4 p-4 bg-blue-800">
+                        <Link to="/" className="text-white hover:text-gray-400">Home</Link>
+                        <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
+                        <Link to="/series" className="text-white hover:text-gray-400">TV Shows</Link>
+                    </div>
+                )}
             </nav>
 
             <section className="bg-blue-600 mx-4 md:mx-24 text-white flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-24 h-2/3">
@@ -76,18 +88,9 @@ const Navbar = () => {
 };
 
 const selected = async () => {
-  
-   const movieRes = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
-   const movieData = await movieRes.json();
-
-//    const tvRes = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
-//    const tvData = await tvRes.json();
-
-   //const combinedResults = [...movieData.results, ...tvData.results]; 
-
-   //return combinedResults;
-   return movieData.results;
-
+    const movieRes = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
+    const movieData = await movieRes.json();
+    return movieData.results;
 };
 
-export {Navbar as default, selected} 
+export { Navbar as default, selected };
