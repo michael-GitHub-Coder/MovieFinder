@@ -22,6 +22,7 @@ const ShowInfo = () => {
                  data.id == id ?( 
                 <>
                   <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full'/>
+                  
                 </>
                 )
                 : null

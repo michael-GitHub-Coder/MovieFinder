@@ -10,6 +10,7 @@ const Navbar = () => {
     const [movies, setMovies] = useState([]);
     const [menuOpen, setMenuOpen] = useState(false);
     const [pages, setPages] = useState(1);
+
  
     const handleSearchQueryChange = (e) => {
         setSearchQuery(e.target.value);
