@@ -6,17 +6,28 @@ import { Link } from 'react-router-dom';
 const Series = () => {
    
     const [series,setSeries] = useState([]);
+    const [changeValue, setChangeValue] = useState('day'); 
     
     useEffect(()=>{
+        const url =
+        changeValue === 'day'
+        ? 'https://api.themoviedb.org/3/trending/tv/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa'
+        : 'https://api.themoviedb.org/3/trending/tv/week?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa';
+      
 
         const fetchdataPopular = async () => {
-            const res = await fetch("https://api.themoviedb.org/3/trending/tv/day?language=en-US&api_key=2b53c6ccaff11ee5f7b4bad4655c55fa")
+            
+            try {
+            const res = await fetch(url);
             const data = await res.json();
             setSeries(data.results)
+            } catch (error) {
+            console.log('Failed to fetch movies', error);
+            }
+            
         }
-        fetchdataPopular();
-        
-    },[])
+        fetchdataPopular(); 
+    },[changeValue])
 
     const seriesList = series.map(data => (
         <Link to="/showInfo">
@@ -28,7 +39,7 @@ const Series = () => {
     
   return (
    <div>
-        <ToggleBnt title="Trending TV Shows..."/>
+        <ToggleBnt title="Trending TV Shows..." onChange={setChangeValue} />
         <div className="flex flex-col-4 mx-24 mb-12 bg-white shadow-lg  overflow-hidden overflow-x-auto">
              {seriesList}
         </div>  
