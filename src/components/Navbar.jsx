@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CiMenuBurger } from 'react-icons/ci';
+import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Fade } from 'react-slideshow-image';
@@ -53,7 +54,7 @@ const Navbar = () => {
                         <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
                         <Link to="/series" className="text-white hover:text-gray-400">TV Shows</Link>
                     </div>
-                    <button onClick={openMenu} className="text-white md:hidden"><CiMenuBurger className="text-2xl"/></button>
+                    <button onClick={openMenu} className="text-white md:hidden">{menuOpen ?  <FaTimes className="text-2xl" /> : <CiMenuBurger className="text-2xl"/> }</button>
                 </div>
                 {menuOpen && (
                     <div className="md:hidden flex flex-col space-y-4 p-4 bg-blue-800">
