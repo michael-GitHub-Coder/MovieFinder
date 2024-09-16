@@ -11,7 +11,6 @@ const ShowMovies = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [inputPage, setInputPage] = useState('');
     const [selectedGenre, setSelectedGenre] = useState(null);
-    const [isClicked, setIsClicked] = useState(false);
     const location = useLocation();
     const movies = location.state && location.state.movies ? location.state.movies : [];
 
