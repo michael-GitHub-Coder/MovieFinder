@@ -13,7 +13,7 @@ const ShowMovies = () => {
     const [selectedGenre, setSelectedGenre] = useState(null);
     const [isClicked, setIsClicked] = useState(false);
     const location = useLocation();
-    const movies = location.state?.movies || [];
+    const movies = location.state && location.state.movies ? location.state.movies : [];
 
     useEffect(() => {
         const fetchMovies = async () => {

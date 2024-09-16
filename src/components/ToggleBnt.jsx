@@ -11,7 +11,7 @@ const ToggleBnt = ({ title, onChange }) => {
   return (
     <div className="flex items-center space-x-4 mx-24 my-5">
       <span className="text-md font-bold">{title}</span>
-      <div className="bg-gray-500 rounded-full">
+      <div className="flex bg-gray-500 rounded-full">
         <button
           onClick={() => handleToggle('day')}
           className={`px-4 py-2 rounded-full transition-colors ${
@@ -22,7 +22,7 @@ const ToggleBnt = ({ title, onChange }) => {
         </button>
         <button
           onClick={() => handleToggle('week')}
-          className={`px-4 py-2 rounded-full transition-colors ${
+          className={`px-8 md:px-4 py-2 rounded-full transition-colors ${
             selectedOption === 'week' ? 'bg-blue-700 text-white' : 'bg-gray-500 text-white'
           }`}
         >
