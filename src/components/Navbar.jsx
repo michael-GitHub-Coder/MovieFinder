@@ -3,7 +3,6 @@ import { CiMenuBurger } from 'react-icons/ci';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const Navbar = () => {
