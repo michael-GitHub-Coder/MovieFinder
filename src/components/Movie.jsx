@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ToggleBnt from './ToggleBnt';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import 'react-slideshow-image/dist/styles.css'
+import { Slide } from 'react-slideshow-image';
 
 const Movie = () => {
   const [movies, setMovies] = useState([]);
