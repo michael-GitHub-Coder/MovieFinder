@@ -51,16 +51,9 @@ const Movie = () => {
   );
 };
 
-// return (
-//   <div>
-//     <Navbar />
-//     <ToggleBnt title="Trending Movies..." onChange={setChangeValue} />
-//     <div className="flex mx-24 bg-white shadow-lg overflow-hidden overflow-x-auto">
-//       {movieData}
-//     </div>
-//   </div>
-// );
-// };
+
+
+
 const loadPopularMovies = async () => {
   const res = await fetch('https://api.themoviedb.org/3/movie/discover?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa');
   const data = await res.json();
