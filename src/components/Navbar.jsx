@@ -53,7 +53,7 @@ const Navbar = () => {
                         <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
                         <Link to="/series" className="text-white hover:text-gray-400">TV Shows</Link>
                     </div>
-                    <button onClick={openMenu} className="text-white md:hidden">{menuOpen ?  <FaTimes className="text-2xl" /> : <CiMenuBurger className="text-2xl"/> }</button>
+                    <button onClick={openMenu} className="text-white md:hidden px-5">{menuOpen ?  <FaTimes className="text-2xl" /> : <CiMenuBurger className="text-2xl"/> }</button>
                 </div>
                 {menuOpen && (
                     <div className="md:hidden flex flex-col space-y-4 p-4 bg-blue-800">
@@ -64,20 +64,20 @@ const Navbar = () => {
                 )}
             </nav>
 
-            <section className="bg-blue-600 mx-4 md:mx-24 text-white flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-24 h-2/3">
+            <section className="container mx-auto bg-blue-600 mx-4 md:mx-24 text-white flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-24 h-2/3">
                 <div className="relative text-center w-full max-w-[54rem]">
                     <h1 className="text-3xl md:text-6xl font-bold mb-4 mt-8 md:mt-12">Welcome.</h1>
                     <div className="relative w-full md:max-w-2xl">
                         <form onSubmit={handleFormSubmit} className="relative">
                             <input
-                                className="w-full rounded-full p-3 pl-7 pr-34 text-black focus:outline-none"
+                                className="w-full rounded-full p-1.5 md:p-3 pl-7  md:pr-34 text-black text-[15px] focus:outline-none"
                                 placeholder="Search for a movie, TV show, series..."
                                 value={searchQuery}
                                 onChange={handleSearchQueryChange}
                             />
                             <button
                                 type="submit"
-                                className="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-1.5 rounded-full bg-blue-800 text-white p-3 hover:bg-blue-900"
+                                className="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-1.5 rounded-full bg-blue-800 text-white p-1.5 md:p-3 hover:bg-blue-900"
                                 onClick={() => {handleSearch()}}
                             >
                                 Search
