@@ -48,6 +48,25 @@ const Navbar = () => {
             <nav className="bg-blue-700 p-4 fixed w-full top-0 left-0 z-50">
                 <div className="container mx-auto flex items-center justify-between">
                     <div className="text-white text-xl font-bold">MF</div>
+                    <div className="">
+                        <div className="relative w-full max-w-2xl md:hidden">
+                            <form onSubmit={handleFormSubmit} className="relative">
+                                <input
+                                    className="w-full rounded-full p-1.5 md:p-3 pr-7  md:pr-34 text-black text-[15px] focus:outline-none"
+                                    placeholder="Search for a movie, TV show, series..."
+                                    value={searchQuery}
+                                    onChange={handleSearchQueryChange}
+                                />
+                                <button
+                                    type="submit"
+                                    className="absolute top-1/2 right-0 transform -translate-y-1/2 -mr-1.5 rounded-full bg-blue-800 text-white p-1.5 md:p-3 hover:bg-blue-900"
+                                    onClick={() => {handleSearch()}}
+                                >
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                     <div className="space-x-4 hidden md:flex">
                         <Link to="/" className="text-white hover:text-gray-400">Home</Link>
                         <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
@@ -65,7 +84,7 @@ const Navbar = () => {
             </nav>
 
             <section className="container md:mx-auto bg-blue-600 lg:max-w-7xl text-white flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-24 h-2/3">
-                <div className="relative text-center w-full max-w-[54rem]">
+                <div className="hidden md:block md:relative md:text-center w-full max-w-[54rem]">
                     <h1 className="text-3xl md:text-6xl font-bold mb-4 mt-8 md:mt-12">Welcome.</h1>
                     <div className="relative w-full md:max-w-2xl">
                         <form onSubmit={handleFormSubmit} className="relative">

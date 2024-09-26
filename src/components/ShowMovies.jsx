@@ -57,10 +57,9 @@ const ShowMovies = () => {
         setCurrentPage(1);
     };
     const searchedMovielist =  movies.map(m => (
-        <div  className="flex h-68 mb-8 object-cover shadow-lg rounded">
+        <div  className=" h-68 mb-8 object-cover shadow-lg rounded">
             <img key={m.id} className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
-            <h1 className="p-2 font-bold text-center">{m.title}</h1>
-            <p className="pl-2  pb-2 text-center">{m.release_date}</p>
+            <p className="pl-2  pb-2 text-[11px]">{m.release_date}</p>
         </div>
     ))
  
