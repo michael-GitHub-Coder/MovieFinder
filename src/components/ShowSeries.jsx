@@ -58,8 +58,8 @@ const ShowSeries = () => {
     const movieList =  movies.map((m) => (
         <div  className="h-68 mb-8 object-cover mr-2 shadow-lg rounded">
             <img key={m.id} className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
-            <h1 className="p-2 font-bold text-center">{m.original_name}</h1>
-            <p className="pl-2  pb-2 text-center">{m.first_air_date}</p>
+            {/* <h1 className="p-2 font-bold text-center">{m.original_name}</h1> */}
+            <p className="pl-2  pb-2 text-[11px]">{m.first_air_date}</p>
         </div>
     ))
     const seriesSearched = series.map(data => (
@@ -74,7 +74,7 @@ const ShowSeries = () => {
 
         <>
             <Navbar />
-            <div className="mx-24 mt-6">
+            <div className="hidden lg:blockmx-24 mt-6">
                 <button onClick={() => handleGenreClick(10759)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Action & Adventure</button>
                 <button onClick={() => handleGenreClick(16)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Animation</button>
                 <button onClick={() => handleGenreClick(35)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Comedy</button>
@@ -83,7 +83,7 @@ const ShowSeries = () => {
                 <button onClick={() => handleGenreClick(10767)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Talk</button>
                 <button onClick={() => handleGenreClick(10763)} className="bg-blue-700 rounded-full p-2 text-white">News</button>
             </div>
-            <div key={movieList.id} className="mx-24 mt-12 grid-cols-1 md:grid md:grid-cols-9 overflow-hidden">
+            <div key={movieList.id} className="mx-24 mt-12 grid-cols-1 md:grid grid-cols-3 lg:grid-cols-6 overflow-hidden">
                 {series.length > 0 ? (
                     seriesSearched
                 ): movieList.slice(0, 18) 
