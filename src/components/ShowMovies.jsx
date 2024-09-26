@@ -57,7 +57,7 @@ const ShowMovies = () => {
         setCurrentPage(1);
     };
     const searchedMovielist =  movies.map(m => (
-        <div  className="flex h-68 mb-8 object-cover mr-2 shadow-lg rounded">
+        <div  className="flex h-68 mb-8 object-cover shadow-lg rounded">
             <img key={m.id} className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
             <h1 className="p-2 font-bold text-center">{m.title}</h1>
             <p className="pl-2  pb-2 text-center">{m.release_date}</p>
@@ -65,7 +65,7 @@ const ShowMovies = () => {
     ))
  
     const movieList = movie.map((m, index) => (
-        <div key={index} className="h-68 mb-8 object-cover mr-2 shadow-lg rounded">
+        <div key={index} className="h-68 w-full mb-8 object-cover shadow-lg rounded">
             {/* <div className="h-52 mb-8 object-cover mr-2 rounded"> */}
                 <img className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.title} />
                 <p className="pl-2  pb-2 text-[11px]">{m.release_date}</p>
@@ -85,8 +85,8 @@ const ShowMovies = () => {
                 <button onClick={() => handleGenreClick(27)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white mr-3">Horror</button>
                 <button onClick={() => handleGenreClick(10749)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white">Romance</button>
             </div>
-            <div className="mx-24 mt-12 grid-cols-1 md:grid md:grid-cols-3 lg:grid-cols-6 overflow-hidden">
-                {movies.length > 0 ? searchedMovielist : movieList.slice(0,12) }
+            <div className="lg:max-w-7xl mx-24 mt-12 grid-cols-1 md:grid md:grid-cols-3 lg:grid-cols-7 overflow-hidden md:gap-2 lg:gap-4">
+                {movies.length > 0 ? searchedMovielist : movieList.slice(0,14) }
             </div>
             <div className="flex justify-center mt-4 mb-10">
                 <button onClick={handlePreviousPage} disabled={currentPage === 1}>
