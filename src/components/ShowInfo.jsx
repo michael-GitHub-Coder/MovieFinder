@@ -39,12 +39,14 @@ const ShowInfo = () => {
                   <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full'/>
                 </div>
                   <div className="w-5/6 px-6 rounded overflow-hidden ">
-                      <div className=" font-bold text-xl text-black">{data.title}</div>
-                      <p> {data.release_date}</p>
-                      <p className="mt-2 flex flex-row">
+                    <div className="flex gap-4">
+                      <p className=" font-bold text-xl text-black ">{data.title}</p>
+                      <p className="mt-1 text-gray-400">{"("+data.release_date.substring(0,4) + ")"}</p>
+                    </div>
+                      {/* <p className="mt-2 flex flex-row">
                         <FaListAlt className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
                         <MdFavoriteBorder className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
-                      </p>
+                      </p> */}
                   </div>  
                 </>
                 )
