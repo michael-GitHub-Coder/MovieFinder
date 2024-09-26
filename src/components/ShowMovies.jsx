@@ -68,6 +68,7 @@ const ShowMovies = () => {
         <div key={index} className="flex mb-8">
             <div className="h-68 w-[170px] object-cover shadow-lg rounded">
                 <img className="h-44 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.title} />
+                <p className="text-[11px]">{m.release_date}</p>
             </div>
         </div>
     ));
@@ -85,7 +86,7 @@ const ShowMovies = () => {
                 <button onClick={() => handleGenreClick(10749)} className="bg-blue-700 rounded-full p-2 text-white">Romance</button>
             </div>
             <div className="mx-24 mt-6 grid-cols-1 md:grid md:grid-cols-6 gap-4 overflow-hidden">
-                {movies.length > 0 ? searchedMovielist : movieList.slice(0,16) }
+                {movies.length > 0 ? searchedMovielist : movieList.slice(0,12) }
             </div>
             <div className="flex justify-center mt-4 mb-10">
                 <button onClick={handlePreviousPage} disabled={currentPage === 1}>
