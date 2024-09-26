@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ShowMovies = () => {
 
@@ -64,12 +65,14 @@ const ShowMovies = () => {
     ))
  
     const movieList = movie.map((m, index) => (
-        <div key={index} className="h-68 w-full mb-8 object-cover shadow-lg rounded">
-            {/* <div className="h-52 mb-8 object-cover mr-2 rounded"> */}
-                <img className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.title} />
-                <p className="pl-2  pb-2 text-[11px]">{m.release_date}</p>
-            {/* </div> */}
-        </div>
+        <Link to={`/showInfo/${m.id}`} key={m.id}>
+            <div key={index} className="h-68 w-full mb-8 object-cover shadow-lg rounded">
+                {/* <div className="h-52 mb-8 object-cover mr-2 rounded"> */}
+                    <img className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.title} />
+                    <p className="pl-2  pb-2 text-[11px]">{m.release_date}</p>
+                {/* </div> */}
+            </div>
+        </Link>
     ));
     
 
