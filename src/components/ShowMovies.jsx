@@ -65,12 +65,9 @@ const ShowMovies = () => {
     ))
  
     const movieList = movie.map((m, index) => (
-        <div key={index} className="grid grid-cols-6 gap-4 mb-8">
+        <div key={index} className="flex mb-8">
             <div className="h-68 w-[170px] object-cover shadow-lg rounded">
                 <img className="h-44 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.title} />
-                {/* Uncomment if you want to show title and release date */}
-                {/* <h1 className="p-2 font-bold text-center">{m.title}</h1> */}
-                {/* <p className="pl-2 text-[12px] pb-2">{m.release_date}</p> */}
             </div>
         </div>
     ));
@@ -87,8 +84,8 @@ const ShowMovies = () => {
                 <button onClick={() => handleGenreClick(27)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Horror</button>
                 <button onClick={() => handleGenreClick(10749)} className="bg-blue-700 rounded-full p-2 text-white">Romance</button>
             </div>
-            <div className="mx-24 mt-6 grid-cols-1 md:grid md:grid-cols-9 overflow-hidden">
-                {movies.length > 0 ? searchedMovielist : movieList.slice(0, 16) }
+            <div className="mx-24 mt-6 grid-cols-1 md:grid md:grid-cols-6 gap-4 overflow-hidden">
+                {movies.length > 0 ? searchedMovielist : movieList.slice(0,16) }
             </div>
             <div className="flex justify-center mt-4 mb-10">
                 <button onClick={handlePreviousPage} disabled={currentPage === 1}>
