@@ -18,7 +18,7 @@ import Trailers from './components/Trailers'
 import ShowMovies from './components/ShowMovies'
 import ShowSeries from './components/ShowSeries'
 import ShowInfo from './components/ShowInfo'
-import { selected } from './components/Navbar'
+
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         <Route path='/trailers' element={<Trailers />} loader={loadPopularMovies}/>
         <Route path='/movies' element={<ShowMovies />} />
         <Route path='/series' element={<ShowSeries/>} />
-        <Route path='/showInfo/:id' element={<ShowInfo />} loader={selected } />
+        <Route path='/showInfo/:id' element={<ShowInfo />}  />
         <Route path='/search-results' element={<ShowMovies />} />
         <Route path='/search-results-series' element={<ShowSeries /> } />
       </Route>
