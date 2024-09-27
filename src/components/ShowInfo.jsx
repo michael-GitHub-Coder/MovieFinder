@@ -29,7 +29,7 @@ const ShowInfo = () => {
       <Navbar />
       
       <div className="flex flex-row space-x-5 mx-64 my-24">
-          
+    
             {
               
               selectedData.map((data) => 
@@ -57,7 +57,8 @@ const ShowInfo = () => {
                     </div> */}
                     </div>
                     <h1 className=" font-semibold mt-4 text-black ">Overview</h1>
-                    <p className="text-[15px]  text-gray-600 mt-2">{data.overview}</p>
+                    <p className="text-[15px]  text-gray-600 mt-2">{console.log(data.overview)}</p>
+                    
                       {/* <p className="mt-2 flex flex-row">
                         <FaListAlt className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
                         <MdFavoriteBorder className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
