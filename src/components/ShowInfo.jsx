@@ -52,7 +52,7 @@ const ShowInfo = () => {
                 </div>
                   <div className="w-5/6 px-6 rounded overflow-hidden ">
                     <div className="flex gap-2 text-xl">
-                      <p className=" font-semibold  text-black ">{data.title}</p>
+                      <p className=" font-semibold  text-black ">{data.title == "undefined" ? "MOvie Title" : data.title}</p>
                       {/* <p className=" text-gray-400">{"("+data.release_date != "Undefined" || data.first_air_date != "Undefined"  ? data.release_date.substring(0,4) : data.first_air_date.substring(0,4) + ")"}</p> */}
                     </div>
                     <div>
@@ -60,7 +60,7 @@ const ShowInfo = () => {
                       <div className="bg-white h-10 w-10 rounded-full mt-4 border-l-2  border-b-2 border-black text-[10px] text-center py-2.5 font-bold text-gray-400">
                       {data.vote_average}
                       </div>
-                      <h1 className="text-gray-600  text-[15px] mt-3">Movie Score</h1>
+                      <h1 className="text-gray-600  text-[15px] mt-3">Score</h1>
                     
                     </div>
                     {/* <div className="flex gap-2">
