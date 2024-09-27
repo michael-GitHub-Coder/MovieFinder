@@ -9,7 +9,7 @@ const ToggleBnt = ({ title, onChange }) => {
   }, [onChange]);
 
   return (
-    <div className="grid grid-cols-1 md:flex items-center space-x-4 mx-24 my-5">
+    <div className="md:flex items-center space-x-4 mx-24 my-5">
       <span className="lg:text-md font-bold">{title}</span>
       <div className="flex bg-gray-500 rounded-full ">
         <button onClick={() => handleToggle('day')} className={`px-2 lg:px-4 lg:py-2 rounded-full text-[11px] lg:tex-[15px] transition-colors ${selectedOption === 'day' ? 'bg-blue-700 text-white' : 'bg-gray-500 text-white'}`}>
