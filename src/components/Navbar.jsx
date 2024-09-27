@@ -47,7 +47,7 @@ const Navbar = () => {
         <>
             <nav className="bg-blue-700 p-4 fixed w-full top-0 left-0 z-50">
                 <div className="container mx-auto flex items-center justify-between">
-                    <div className="text-white text-xl font-bold">MF</div>
+                    <div className="text-white text-xl font-bold pr-4">MF</div>
                     <div className="">
                         <div className="relative w-full max-w-2xl md:hidden">
                             <form onSubmit={handleFormSubmit} className="relative">
@@ -75,7 +75,7 @@ const Navbar = () => {
                     <button onClick={openMenu} className="text-white md:hidden px-5">{menuOpen ?  <FaTimes className="text-2xl" /> : <CiMenuBurger className="text-2xl"/> }</button>
                 </div>
                 {menuOpen && (
-                    <div className="md:hidden flex flex-col space-y-4 p-4 bg-blue-800">
+                    <div className="md:hidden flex flex-col mt-4 space-y-2 p-4">
                         <Link to="/" className="text-white hover:text-gray-400">Home</Link>
                         <Link to="/movies" className="text-white hover:text-gray-400">Movies</Link>
                         <Link to="/series" className="text-white hover:text-gray-400">TV Shows</Link>
