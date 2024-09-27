@@ -40,14 +40,14 @@ const ShowInfo = () => {
     <>
       <Navbar />
       
-      <div className="flex flex-row space-x-5 mx-64 my-24">
+      <div className="grid grid-cols-1 lg:flex flex-row space-x-5 md:mx-64 md:my-24">
     
             {
               
               selectedData.map((data) => 
                  data.id == id ? ( 
                 <>
-                <div className=" w-64 h-80 rounded overflow-hidden shadow-xl">
+                <div className="w-64 h-80 rounded overflow-hidden shadow-xl">
                   <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full'/>
                 </div>
                   <div className="w-5/6 px-6 rounded overflow-hidden ">
