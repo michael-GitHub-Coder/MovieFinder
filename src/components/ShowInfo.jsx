@@ -50,7 +50,7 @@ const ShowInfo = () => {
     <>
       <Navbar />
       
-      <div className="grid grid-cols-1 md:flex flex-row md:space-x-5 mx-5 md:mx-12 md:py-5 lg:mx-64 lg:my-24">
+      <div className="grid grid-cols-1 md:flex flex-row md:space-x-5 mx-5 md:mx-12 md:py-5 lg:mx-64 my-10 md:my-24">
         {
            selectedData.map((data) => 
             data.id == id ? ( 
@@ -59,7 +59,7 @@ const ShowInfo = () => {
               <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full'/>
             </div>
               <div className="w-5/6 md:px-6 rounded overflow-hidden ">
-                <div className="flex gap-2 text-xl">
+                <div className="flex gap-2 text-xl mt-5">
                   <p className=" font-semibold  text-black ">{data.title == "undefined" ? "Movie Title" : data.title }</p>
                   {/* <p className=" text-gray-400">{"("+data.release_date != "Undefined" || data.first_air_date != "Undefined"  ? data.release_date.substring(0,4) : data.first_air_date.substring(0,4) + ")"}</p> */}
                 </div>
