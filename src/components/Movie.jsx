@@ -3,8 +3,8 @@ import ToggleBnt from './ToggleBnt';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import 'react-slideshow-image/dist/styles.css'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css'
 
 const Movie = () => {
   const [movies, setMovies] = useState([]);
@@ -31,12 +31,15 @@ const Movie = () => {
 
   const movieData = movies.map((data) => (
     <Link to={`/showInfo/${data.id}`} key={data.id}>
-      <div className="h-52 w-[150px] object-cover">
+      <div className="h-52 w-[150px] object-cover hover:transform hover:translate-x-4 hover:translate-y-2 transition-transform duration-300 relative">
         <img
-          className="h-52 hover:transform hover:translate-x-4 hover:translate-y-2 transition-transform duration-300"
+          className="h-52 "
           src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
           alt="Card image"
         />
+        <div className="absolute bottom-7 translate-y-10 bg-white bg-opacity-30 w-full py-1.5">
+          <p className="pl-2  pb-2 text-[11px]  text-black">{data.release_date}</p>
+        </div>
       </div>
     </Link>
   ));
@@ -45,8 +48,8 @@ const Movie = () => {
     <div>
       <Navbar />
       <ToggleBnt title="Trending Movies..." onChange={setChangeValue} />
-      <div className="flex mx-24 bg-white shadow-lg overflow-hidden overflow-x-auto">
-        {movieData}
+      <div className="flex mx-24 bg-white shadow-lg overflow-hidden ">
+      {movieData}
       </div>
     </div>
   );

@@ -58,10 +58,12 @@ const ShowSeries = () => {
     }
     const movieList =  movies.map((m) => (
         <Link to={`/showInfo/${m.id}`} key={m.id}>
-            <div  className="h-68 mb-8 object-cover shadow-lg rounded">
+            <div  className="h-52 mb-8 object-cover shadow-lg bg-gray-400 relative">
                 <img key={m.id} className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
                 {/* <h1 className="p-2 font-bold text-center">{m.original_name}</h1> */}
-                <p className="pl-2  pb-2 text-[11px]">{m.first_air_date}</p>
+                <div className="absolute bottom-7 translate-y-10 bg-white bg-opacity-30 w-full py-1.5">
+                    <p className="pl-2  pb-2 text-[11px]  text-black">{m.first_air_date}</p>
+                </div>
             </div>
         </Link>
     ))
