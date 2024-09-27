@@ -64,7 +64,7 @@ const ShowMovies = () => {
         </div>
     ))
  
-    const movieList = movie.map((m, index) => (
+    const movieList = movie.map((m,index) => (
         <Link to={`/showInfo/${m.id}`} key={m.id}>
             <div key={index} className="h-52 w-full mb-8 object-cover shadow-lg bg-gray-400 relative ">
                 {/* <div className="h-52 mb-8 object-cover mr-2 rounded"> */}
@@ -89,7 +89,7 @@ const ShowMovies = () => {
                 <button onClick={() => handleGenreClick(27)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white mr-3">Horror</button>
                 <button onClick={() => handleGenreClick(10749)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white">Romance</button>
             </div>
-            <div className="lg:max-w-7xl mx-24 mt-12 grid-cols-1 md:grid md:grid-cols-3 lg:grid-cols-7 overflow-hidden md:gap-2 lg:gap-4">
+            <div className="lg:max-w-7xl mx-24 mt-12 grid-cols-1 grid md:grid-cols-3 lg:grid-cols-7 overflow-hidden md:gap-2 lg:gap-4">
                 {movies.length > 0 ? searchedMovielist : movieList.slice(0,14) }
             </div>
             <div className="flex justify-center mt-4 mb-10">

@@ -58,28 +58,10 @@ const Movie = () => {
 
 
 
-const loadPopularMovies = async () => {
-  const res = await fetch('https://api.themoviedb.org/3/movie/discover?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa');
-  const data = await res.json();
-  return data;
-};
-
 // const loadPopularMovies = async () => {
-  
-//     const apiKey = "2b53c6ccaff11ee5f7b4bad4655c55fa";
-//     const results = [];
-    
-//     for (let page = 1; page <= 46225; page++) {
-//       const res = await fetch(
-//         `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=${page}`
-//       );
-//       const data = await res.json();
-//       results.push(...data.results);
-//       if (results.length >= 46225) break; // Stop when we have 50 movies
-//     }
-  
-//     return results; // Limit to 50 results
-  
-
+//   const res = await fetch('https://api.themoviedb.org/3/movie/discover?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa');
+//   const data = await res.json();
+//   return data;
 // };
-export { Movie as default, loadPopularMovies };
+
+export default Movie;
