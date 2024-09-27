@@ -27,7 +27,21 @@ const ShowInfo = () => {
       
 
       const MovieSeries = [...movieData.results,...seriesData.results,...seriesDayData.results,...movieDayData.results];
-      setselectedData(MovieSeries);
+      
+      const seenIds = new Set();
+      const uniqueMovieSeries = MovieSeries.filter((item) => {
+        if (seenIds.has(item.id)) {
+          return false; // If the ID is already seen, filter it out
+        }
+        seenIds.add(item.id); // Otherwise, add it to the Set
+        return true; // Keep the item
+      });
+    
+      // Now you can find the specific item by ID
+      const newMovieSeries = uniqueMovieSeries.find((movie) => movie.id === id);
+     
+    
+      setselectedData(uniqueMovieSeries);
      
     }
     geetDat();
@@ -80,7 +94,7 @@ const ShowInfo = () => {
       <Navbar />
       
       <div className="grid grid-cols-1 md:flex flex-row space-x-5 md:mx-12 md:py-5 lg:mx-64 lg:my-24">
-        {hh.slice(0,2)}
+        {hh}
       </div>
        
     </>
