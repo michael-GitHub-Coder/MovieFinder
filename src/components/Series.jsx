@@ -29,7 +29,7 @@ const Series = () => {
         fetchdataPopular(); 
     },[changeValue])
 
-    const seriesList = series.map(data => (
+    const seriesList = series.map((data) => (
         <Link to={`/showInfo/${data.id}`} key={data.id}>
             <div className="h-52 w-32 mr-2 object-cover hover:transform hover:translate-x-4 hover:translate-y-2 transition-transform duration-300 relative">
                 <img key={data.id} className="h-52 object-cover " src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="Card image" />

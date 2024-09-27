@@ -14,8 +14,20 @@ const ShowInfo = () => {
     const  geetDat = async () =>{
       const movieRes = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
       const movieData = await movieRes.json();
-      // return movieData.results;
-      setselectedData(movieData.results);
+
+      const seriesres = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
+      const seriesData = await seriesres.json();
+
+      const seriesDay = await fetch("https://api.themoviedb.org/3/trending/tv/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
+      const seriesDayData = await seriesDay.json();
+
+      const movieDay = await fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55faa");
+      const movieDayData = await movieDay.json();
+
+      
+
+      const MovieSeries = [...movieData.results,...seriesData.results,...seriesDayData.results];
+      setselectedData(MovieSeries);
      
     }
     geetDat();
@@ -41,7 +53,7 @@ const ShowInfo = () => {
                   <div className="w-5/6 px-6 rounded overflow-hidden ">
                     <div className="flex gap-2 text-xl">
                       <p className=" font-semibold  text-black ">{data.title}</p>
-                      <p className=" text-gray-400">{"("+data.release_date.substring(0,4) + ")"}</p>
+                      {/* <p className=" text-gray-400">{"("+data.release_date != "Undefined" || data.first_air_date != "Undefined"  ? data.release_date.substring(0,4) : data.first_air_date.substring(0,4) + ")"}</p> */}
                     </div>
                     <div>
                     <div className="flex gap-4 items-center">
