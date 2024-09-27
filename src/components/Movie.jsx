@@ -48,7 +48,7 @@ const Movie = () => {
     <div>
       <Navbar />
       <ToggleBnt title="Trending Movies..." onChange={setChangeValue} />
-      <div className="flex mx-24 bg-white shadow-lg overflow-hidden ">
+      <div className="flex mx-24 bg-white shadow-lg overflow-hidden overflow-x-auto">
       {movieData}
       </div>
     </div>
@@ -64,4 +64,22 @@ const loadPopularMovies = async () => {
   return data;
 };
 
+// const loadPopularMovies = async () => {
+  
+//     const apiKey = "2b53c6ccaff11ee5f7b4bad4655c55fa";
+//     const results = [];
+    
+//     for (let page = 1; page <= 46225; page++) {
+//       const res = await fetch(
+//         `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=${page}`
+//       );
+//       const data = await res.json();
+//       results.push(...data.results);
+//       if (results.length >= 46225) break; // Stop when we have 50 movies
+//     }
+  
+//     return results; // Limit to 50 results
+  
+
+// };
 export { Movie as default, loadPopularMovies };
