@@ -48,7 +48,7 @@ const ShowInfo = () => {
                       <div className="bg-white h-10 w-10 rounded-full mt-4 border-l-2  border-b-2 border-black text-[10px] text-center py-2.5 font-bold text-gray-400">
                       {data.vote_average}
                       </div>
-                      <h1 className="text-gray-600  text-[15px] mt-3">Movie<br></br> Score</h1>
+                      <h1 className="text-gray-600  text-[15px] mt-3">Movie Score</h1>
                     
                     </div>
                     {/* <div className="flex gap-2">
@@ -57,7 +57,7 @@ const ShowInfo = () => {
                     </div> */}
                     </div>
                     <h1 className=" font-semibold mt-4 text-black ">Overview</h1>
-                    <p className="text-[15px]  text-gray-600 mt-2">{console.log(data.overview)}</p>
+                    <p className="text-[15px]  text-gray-600 mt-2">{data.overview}</p>
                     
                       {/* <p className="mt-2 flex flex-row">
                         <FaListAlt className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
