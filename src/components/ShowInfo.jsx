@@ -21,12 +21,12 @@ const ShowInfo = () => {
       const seriesDay = await fetch("https://api.themoviedb.org/3/trending/tv/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
       const seriesDayData = await seriesDay.json();
 
-      const movieDay = await fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55faa");
+      const movieDay = await fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
       const movieDayData = await movieDay.json();
 
       
 
-      const MovieSeries = [...movieData.results,...seriesData.results,...seriesDayData.results];
+      const MovieSeries = [...movieData.results,...seriesData.results,...seriesDayData.results,...movieDayData.results];
       setselectedData(MovieSeries);
      
     }

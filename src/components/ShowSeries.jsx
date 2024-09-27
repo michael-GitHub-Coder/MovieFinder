@@ -67,12 +67,14 @@ const ShowSeries = () => {
             </div>
         </Link>
     ))
-    const seriesSearched = series.map(data => (
+    const seriesSearched = series.map((m) => (
+        <Link to={`/showInfo/${m.id}`} key={m.id}>
         <div  className="h-68 mb-8 object-cover shadow-lg rounded">
             <img key={m.id} className="h-52 w-full" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt="Card image" />
             <h1 className="p-2 font-bold text-center">{m.original_name}</h1>
             <p className="pl-2  pb-2 text-center">{m.first_air_date}</p>
         </div>
+        </Link>
     ))
 
     return (
