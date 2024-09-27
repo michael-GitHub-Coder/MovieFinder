@@ -31,13 +31,13 @@ const ShowInfo = () => {
       const seenIds = new Set();
       const uniqueMovieSeries = MovieSeries.filter((item) => {
         if (seenIds.has(item.id)) {
-          return false; // If the ID is already seen, filter it out
+          return false; 
         }
-        seenIds.add(item.id); // Otherwise, add it to the Set
-        return true; // Keep the item
+        seenIds.add(item.id); 
+        return true; 
       });
     
-      // Now you can find the specific item by ID
+      
       const newMovieSeries = uniqueMovieSeries.find((movie) => movie.id === id);
      
     
