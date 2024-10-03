@@ -12,6 +12,7 @@ const ShowInfo = () => {
 
   useEffect(()=>{
     const  geetDat = async () =>{
+      
       const movieRes = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
       const movieData = await movieRes.json();
 
