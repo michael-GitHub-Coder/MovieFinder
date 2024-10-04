@@ -81,7 +81,7 @@ const ShowSeries = () => {
 
         <>
             <Navbar />
-            <div className="hidden lg:block mx-24 mt-6">
+            <div className="hidden lg:block container mx-auto mt-6">
                 <button onClick={() => handleGenreClick(10759)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Action & Adventure</button>
                 <button onClick={() => handleGenreClick(16)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Animation</button>
                 <button onClick={() => handleGenreClick(35)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Comedy</button>
@@ -90,7 +90,7 @@ const ShowSeries = () => {
                 <button onClick={() => handleGenreClick(10767)} className="bg-blue-700 rounded-full p-2 text-white mr-3">Talk</button>
                 <button onClick={() => handleGenreClick(10763)} className="bg-blue-700 rounded-full p-2 text-white">News</button>
             </div>
-            <div key={movieList.id} className="lg:max-w-7xl md:gap-2 lg:gap-4 mx-24 mt-12 grid-cols-1 grid  md:grid-cols-3 lg:grid-cols-7 overflow-hidden">
+            <div key={movieList.id} className="container mx-auto md:gap-2 lg:gap-4 mt-12 grid-cols-1 grid  md:grid-cols-3 lg:grid-cols-7 overflow-hidden">
                 {series.length > 0 ? (
                     seriesSearched
                 ): movieList.slice(0, 14) 
