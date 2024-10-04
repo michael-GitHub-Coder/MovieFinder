@@ -83,7 +83,7 @@ const Navbar = () => {
                 )}
             </nav>
 
-            <section className="container md:mx-auto bg-blue-600 lg:max-w-7xl text-white flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-24 h-2/3">
+            <section className="container mx-auto bg-blue-600  text-white flex flex-col items-center justify-center py-8 md:py-16 px-4 md:px-24 h-2/3">
                 <div className="hidden md:block md:relative md:text-center w-full max-w-[54rem]">
                     <h1 className="text-3xl md:text-6xl font-bold mb-4 mt-8 md:mt-12">Welcome.</h1>
                     <div className="relative w-full md:max-w-2xl">

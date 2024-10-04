@@ -32,7 +32,7 @@ const Movie = () => {
     <Link to={`/showInfo/${data.id}`} key={data.id}>
       <div className="h-52  object-cover hover:transform hover:translate-x-4 hover:translate-y-2 transition-transform duration-300 relative">
         <img
-          className="h-52 w-full "
+          className="h-52 w-full mb-4 "
           src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
           alt="Card image"
         />
@@ -48,7 +48,7 @@ const Movie = () => {
       <Navbar />
       <div className="container mx-auto">
         <ToggleBnt title="Trending Movies..." onChange={setChangeValue} />
-        <div className="grid grid-cols-1 md:grid-cols-7 md:gap-2 lg:gap-4  bg-white shadow-lg overflow-hidden ">
+        <div className="mx-10 md:mx-0 grid grid-cols-1 md:grid-cols-7 md:gap-2 lg:gap-4  bg-white shadow-lg overflow-hidden ">
             {movieData.slice(0,7)}
         </div>
         <div className="flex justify-end">
