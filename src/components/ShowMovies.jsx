@@ -83,7 +83,7 @@ const ShowMovies = () => {
     return (
         <>  
             <Navbar />
-            <div className="hidden lg:block mx-24 mt-6">
+            <div className="hidden lg:block container mx-auto mt-6">
                 <button onClick={() => handleGenreClick(12)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white mr-3">Adventure</button>
                 <button onClick={() => handleGenreClick(14)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white mr-3">Fantasy</button>
                 <button onClick={() => handleGenreClick(18)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white mr-3">Drama</button>
@@ -91,7 +91,7 @@ const ShowMovies = () => {
                 <button onClick={() => handleGenreClick(27)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white mr-3">Horror</button>
                 <button onClick={() => handleGenreClick(10749)} className=" md:text-[15px] bg-blue-700 rounded-full p-2 text-white">Romance</button>
             </div>
-            <div className="lg:max-w-7xl mx-24 mt-12 grid-cols-1 grid md:grid-cols-3 lg:grid-cols-7 overflow-hidden md:gap-2 lg:gap-4">
+            <div className="container mx-auto mt-12 grid-cols-1 grid md:grid-cols-3 lg:grid-cols-7 overflow-hidden md:gap-2 lg:gap-4">
                 {movies.length > 0 ? searchedMovielist : movieList.slice(0,14) }
             </div>
             <div className="flex justify-center mt-4 mb-10">
