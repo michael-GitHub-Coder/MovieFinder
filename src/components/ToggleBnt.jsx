@@ -9,8 +9,8 @@ const ToggleBnt = ({ title, onChange }) => {
   }, [onChange]);
 
   return (
-    <div className="md:flex items-center space-x-4 container mx-auto px-5 my-5">
-      <span className="lg:text-md font-bold">{title}</span>
+    <div className="flex items-center space-x-4 container mx-auto px-10 my-5">
+      <h1 className="lg:text-md font-bold">{title}</h1>
       <div className="flex w-[110px] md:w-[126px] lg:w-auto bg-gray-500 rounded-full ">
         <button onClick={() => handleToggle('day')} className={`px-2 lg:px-4 lg:py-2 rounded-full text-[11px] lg:tex-[15px] transition-colors ${selectedOption === 'day' ? 'bg-blue-700 text-white' : 'bg-gray-500 text-white'}`}>
           Today
