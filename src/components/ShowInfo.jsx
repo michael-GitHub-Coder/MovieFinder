@@ -55,7 +55,7 @@ const ShowInfo = () => {
         {
            selectedData.map((data) => 
             data.id == id ? ( 
-            <>
+            <div key={data.id} className="md:flex flex-row">
             <div style={{backgroundImage:`url(${data.backdrop_path},")`,backgroundPosition:"center"}}>
 
             </div>
@@ -88,7 +88,7 @@ const ShowInfo = () => {
                     <MdFavoriteBorder className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
                   </p> */}
               </div>  
-            </>
+            </div>
             )
             : null
           )       
