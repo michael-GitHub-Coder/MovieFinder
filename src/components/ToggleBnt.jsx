@@ -19,16 +19,6 @@ const ToggleBnt = ({ title, onChange }) => {
           This Week
         </button>
       </div>
-      {/* <div className="flex gap-4 md:hidden">
-        <div className="flex gap-2">
-          <h1 className="font-semibold">Today</h1>
-          <input type="checkbox" className="rounded-full w-5 h-5 mt-1"/>
-        </div>
-        <div className="flex gap-2">
-          <h1 className="font-semibold">This Week</h1>
-          <input type="checkbox" className="rounded-full w-5 h-5 mt-1"/>
-        </div>
-      </div> */}
     </div>
   );
 };
