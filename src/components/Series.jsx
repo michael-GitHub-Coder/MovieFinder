@@ -45,10 +45,10 @@ const Series = () => {
   return (
    <div className="container mx-auto">
         <ToggleBnt title="Trending TV Shows..." onChange={setChangeValue} />
-        <div className="grid grid-cols-1 md:grid-cols-7 md:gap-2 lg:gap-4 bg-white shadow-lg overflow-hidden">
+        <div className="mx-10 md:mx-0 grid grid-cols-1 md:grid-cols-7 md:gap-2 lg:gap-4 bg-white shadow-lg overflow-hidden">
              {seriesList.slice(0,7)}  
         </div>  
-        <div className="flex justify-end">
+        <div className="flex justify-end px-6 md:px-0">
             <Link to="/series"><button className="flex my-5 text-blue-700 font-semibold gap-2 px-4 py-2 hover:rounded-full hover:bg-blue-600 hover:text-white cursor-pointer">See More <FaArrowRight className="mt-1.5" /></button></Link>
         </div>
    </div>

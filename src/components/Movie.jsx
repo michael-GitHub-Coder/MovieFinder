@@ -51,7 +51,7 @@ const Movie = () => {
         <div className="mx-10 md:mx-0 grid grid-cols-1 md:grid-cols-7 md:gap-2 lg:gap-4  bg-white shadow-lg overflow-hidden ">
             {movieData.slice(0,7)}
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-end px-6 md:px-0">
             <Link to="/movies"><button className="flex cursor-pointer my-5 text-blue-700 font-semibold gap-2 px-4 py-2 hover:rounded-full hover:bg-blue-600 hover:text-white">See More <FaArrowRight className="mt-1.5" /></button></Link>
         </div>
       </div>
