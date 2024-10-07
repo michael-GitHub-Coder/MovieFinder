@@ -52,7 +52,7 @@ const Movie = () => {
             {movieData.slice(0,7)}
         </div>
         <div className="flex justify-end">
-            <button className="flex cursor-pointer my-5 text-blue-700 font-semibold gap-2 px-4 py-2 hover:rounded-full hover:bg-blue-600 hover:text-white">See More <FaArrowRight className="mt-1.5" /></button>
+            <Link to="/movies"><button className="flex cursor-pointer my-5 text-blue-700 font-semibold gap-2 px-4 py-2 hover:rounded-full hover:bg-blue-600 hover:text-white">See More <FaArrowRight className="mt-1.5" /></button></Link>
         </div>
       </div>
     </div>
