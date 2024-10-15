@@ -1,23 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { FaChild, FaListAlt } from 'react-icons/fa'
-import { useLoaderData, useParams } from 'react-router-dom'
-import Navbar from './Navbar'
-import { MdFavoriteBorder } from 'react-icons/md'
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Navbar from './Navbar';
+import { MdFavoriteBorder } from 'react-icons/md';
 
 const ShowInfo = () => {
+  const [selectedData, setSelectedData] = useState([]);
+  const [bgImage, setBgImage] = useState(""); // Use useState instead of useRef
+  const { id } = useParams();
 
-  const [selectedData, setselectedData] = useState([]);
-  //const selectedData = useLoaderData();
-
-  useEffect(()=>{
-    const  geetDat = async () =>{
-      
+  useEffect(() => {
+    const getData = async () => {
       const movieRes = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
       const movieData = await movieRes.json();
 
-      const seriesres = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
-      const seriesData = await seriesres.json();
+      const seriesRes = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
+      const seriesData = await seriesRes.json();
 
       const seriesDay = await fetch("https://api.themoviedb.org/3/trending/tv/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
       const seriesDayData = await seriesDay.json();
@@ -25,9 +22,7 @@ const ShowInfo = () => {
       const movieDay = await fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=2b53c6ccaff11ee5f7b4bad4655c55fa");
       const movieDayData = await movieDay.json();
 
-      
-
-      const MovieSeries = [...movieData.results,...seriesData.results,...seriesDayData.results,...movieDayData.results];
+      const MovieSeries = [...movieData.results, ...seriesData.results, ...seriesDayData.results, ...movieDayData.results];
       
       const seenIds = new Set();
       const uniqueMovieSeries = MovieSeries.filter((item) => {
@@ -37,66 +32,52 @@ const ShowInfo = () => {
         seenIds.add(item.id); 
         return true; 
       });
-      setselectedData(uniqueMovieSeries);
+      setSelectedData(uniqueMovieSeries);
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    // Set the background image when the relevant data is found
+    const foundData = selectedData.find(data => data.id == id);
+    if (foundData) {
+      setBgImage(`https://image.tmdb.org/t/p/w500${foundData.backdrop_path}`);
     }
-    geetDat();
-  },[])
-  const {id} = useParams();
- console.log(selectedData);
- console.log(id)
+  }, [selectedData, id]); // Dependency array to trigger this effect when selectedData or id changes
 
-
- 
   return (
     <>
       <Navbar />
-      
-      <div  className="grid grid-cols-1 md:flex flex-row md:space-x-5 mx-5 md:mx-12 md:py-5 lg:mx-64 my-10 md:my-24">
+      <div style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: "center",backgroundRepeat: "no-repeat" }} className="grid grid-cols-1 md:flex flex-row md:space-x-5 mx-5 md:mx-12 md:py-5 lg:mx-64 my-10 md:my-24">
         {
-           selectedData.map((data) => 
+          selectedData.map((data) => 
             data.id == id ? ( 
-            <div key={data.id} className="md:flex flex-row">
-            <div style={{backgroundImage:`url(${data.backdrop_path},")`,backgroundPosition:"center"}}>
-
-            </div>
-            <div className="md:w-64 w-full h-80 rounded overflow-hidden shadow-xl">
-              <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full'/>
-            </div>
-              <div className="w-5/6 md:px-6 rounded overflow-hidden ">
-                <div className="flex gap-2 text-xl mt-5">
-                  <p className=" font-semibold  text-black ">{data.title == "undefined" ? "Movie Title" : data.title }</p>
-                  {/* <p className=" text-gray-400">{"("+data.release_date != "Undefined" || data.first_air_date != "Undefined"  ? data.release_date.substring(0,4) : data.first_air_date.substring(0,4) + ")"}</p> */}
+              <div key={data.id} className="md:flex flex-row">
+                <div className="md:w-64 w-full h-80 rounded overflow-hidden shadow-xl">
+                  <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} className='h-full w-full' alt={data.title} />
                 </div>
-                <div>
-                <div className="flex gap-4 items-center">
-                  <div className="bg-white h-10 w-10 rounded-full mt-4 border-l-2  border-b-2 border-black text-[10px] text-center py-2.5 font-bold text-gray-400">
-                  {data.vote_average}
+                <div className="w-5/6 md:px-6 rounded overflow-hidden ">
+                  <div className="flex gap-2 text-xl mt-5">
+                    <p className="font-semibold text-black">{data.title || "Movie Title"}</p>
                   </div>
-                  <h1 className="text-gray-600  text-[15px] mt-3">Score</h1>
-                
+                  <div>
+                    <div className="flex gap-4 items-center">
+                      <div className="bg-white h-10 w-10 rounded-full mt-4 border-l-2 border-b-2 border-black text-[10px] text-center py-2.5 font-bold text-gray-400">
+                        {data.vote_average}
+                      </div>
+                      <h1 className="text-gray-600 text-[15px] mt-3">Score</h1>
+                    </div>
+                  </div>
+                  <h1 className="font-semibold mt-4 text-black">Overview</h1>
+                  <p className="text-[15px] text-gray-600 mt-2">{data.overview}</p>
                 </div>
-                {/* <div className="flex gap-2">
-                  <h1 className=" font-semibold  text-black ">Score :</h1>
-                    <p className="text-[15px]  text-gray-600 mt-0.5"></p>
-                </div> */}
-                </div>
-                <h1 className=" font-semibold mt-4 text-black ">Overview</h1>
-                <p className="text-[15px]  text-gray-600 mt-2">{data.overview}</p>
-                
-                  {/* <p className="mt-2 flex flex-row">
-                    <FaListAlt className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
-                    <MdFavoriteBorder className="bg-gray-300 rounded-full text-4xl p-1 mr-2"/>
-                  </p> */}
-              </div>  
-            </div>
-            )
-            : null
+              </div>
+            ) : null
           )       
         }
       </div>
-       
     </>
-  )
-}
+  );
+};
 
-export default ShowInfo
+export default ShowInfo;
