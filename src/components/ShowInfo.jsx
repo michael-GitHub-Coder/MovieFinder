@@ -48,7 +48,7 @@ const ShowInfo = () => {
   return (
     <>
       <Navbar />
-      <div style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: "center",backgroundRepeat: "no-repeat" }} className="grid grid-cols-1 md:flex flex-row md:space-x-5 mx-5 md:mx-12 md:py-5 lg:mx-64 my-10 md:my-24">
+      <div style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: "center",backgroundRepeat: "no-repeat",backgroundSize: "cover" }} className="grid grid-cols-1 md:flex flex-row md:space-x-5 mx-5 md:mx-12 md:py-5 lg:mx-64 my-10 md:my-24">
         {
           selectedData.map((data) => 
             data.id == id ? ( 
